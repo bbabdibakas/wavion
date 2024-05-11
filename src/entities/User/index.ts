@@ -1,5 +1,9 @@
-import { User } from './model/types/user'
+import { userActions, userReducer } from './model/slice/userSlice'
+import { User, UserState } from './model/types/user'
 
 export {
-	User
+	User,
+	UserState,
+	userActions,
+	userReducer
 }

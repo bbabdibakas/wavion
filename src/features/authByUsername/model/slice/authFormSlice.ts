@@ -1,5 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 import { AuthFormState } from '../types/authForm'
+import { authByUsername } from '../services/authByUsername/authByUsername'
 
 const initialState: AuthFormState = {
 	username: '',
@@ -22,6 +23,21 @@ export const authFormSlice = createSlice({
 			state.password = ''
 		},
 	},
+	extraReducers: (builder) => {
+		builder
+			.addCase(authByUsername.pending, (state) => {
+				state.isLoading = true
+				state.isErrorMessage = undefined
+			})
+			.addCase(authByUsername.rejected, (state, action) => {
+				state.isLoading = false
+				state.isErrorMessage = action.payload as string
+			})
+			.addCase(authByUsername.fulfilled, (state) => {
+				state.isLoading = false
+				state.isErrorMessage = undefined
+			})
+	}
 })
 
 export const { actions: authFormActions } = authFormSlice

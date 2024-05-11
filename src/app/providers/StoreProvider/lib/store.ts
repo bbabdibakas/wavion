@@ -2,11 +2,13 @@ import { configureStore } from '@reduxjs/toolkit'
 import { counterReducer } from 'entities/Counter'
 import { RootState } from './RootState'
 import { authFormReducer } from 'features/AuthByUsername'
+import { userReducer } from 'entities/User'
 
 export const createReduxStore = (initialState?: RootState) => {
 	const rootReducer = {
 		counter: counterReducer,
-		authForm: authFormReducer
+		user: userReducer,
+		authForm: authFormReducer,
 	}
 
 	const store = configureStore({
@@ -17,3 +19,5 @@ export const createReduxStore = (initialState?: RootState) => {
     
 	return store
 }
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

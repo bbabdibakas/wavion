@@ -1,6 +1,9 @@
 export interface User {
     id: string
     username: string
-    password: string
     profileId: string
+}
+
+export interface UserState {
+    userData?: User
 }

@@ -1,8 +1,8 @@
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
 import cls from './AuthForm.module.scss'
 import { AppInput } from 'shared/ui/AppInput/AppInput'
-import { useDispatch, useSelector } from 'react-redux'
-import { useCallback } from 'react'
+import { useSelector } from 'react-redux'
+import { useCallback, useEffect } from 'react'
 import { authFormActions } from '../../model/slice/authFormSlice'
 import { AppLoader } from 'shared/ui/AppLoader/AppLoader'
 import { getAuthFormIsErrorMessage } from '../../model/selectors/getAuthFormIsErrorMessage/getAuthFormIsErrorMessage'
@@ -10,9 +10,14 @@ import { getAuthFormIsLoading } from '../../model/selectors/getAuthFormIsLoading
 import { getAuthFormPassword } from '../../model/selectors/getAuthFormPassword/getAuthFormPassword'
 import { getAuthFormUsername } from '../../model/selectors/getAuthFormUsername/getAuthFormUsername'
 import { authByUsername } from '../../model/services/authByUsername/authByUsername'
+import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch'
 
-export const AuthForm = () => {
-	const dispatch = useDispatch()
+interface AuthFormProps {
+	onSuccess: () => void
+}
+
+export const AuthForm = ({ onSuccess }: AuthFormProps) => {
+	const dispatch = useAppDispatch()
 
 	const username = useSelector(getAuthFormUsername)
 	const password = useSelector(getAuthFormPassword)
@@ -28,9 +33,25 @@ export const AuthForm = () => {
 	}, [dispatch])
 
 	const onLogin = useCallback(async () => {
-		//@ts-expect-error fix later
-		await dispatch(authByUsername({ username, password }))
+		const result = await dispatch(authByUsername({ username, password }))
+		if (result.meta.requestStatus === 'fulfilled') {
+			onSuccess()
+		}
 	}, [dispatch, username, password])
+
+	useEffect(() => {
+		const onKeyDown = (e: KeyboardEvent) => {
+			if (e.key === 'Enter') {
+				onLogin()
+			}
+		}
+
+		window.addEventListener('keydown', onKeyDown)
+
+		return () => {
+			window.removeEventListener('keydown', onKeyDown)
+		}
+	}, [username, password])
 
 	return (
 		<div className={cls.AuthForm}>
