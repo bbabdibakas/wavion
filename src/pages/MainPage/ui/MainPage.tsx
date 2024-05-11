@@ -5,32 +5,32 @@ import { AppModal } from 'shared/ui/AppModal/AppModal'
 
 const MainPage = () => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false)
+	const [isModalOpen, setIsModalOpen] = useState(false)
 
-    const onModalOpen = () => {
-        setIsModalOpen(true)
-    }
+	const onModalOpen = () => {
+		setIsModalOpen(true)
+	}
 
-    const onModalClose = () => {
-        setIsModalOpen(false)
-    }
+	const onModalClose = () => {
+		setIsModalOpen(false)
+	}
 
-    return (
-        <div>
-            <div className={cls.navbar}>
-                <AppButton
-                    theme={AppButtonTheme.PRIMARY}
-                    className={cls.button}
-                    onClick={onModalOpen}
-                >
+	return (
+		<div>
+			<div className={cls.navbar}>
+				<AppButton
+					theme={AppButtonTheme.PRIMARY}
+					className={cls.button}
+					onClick={onModalOpen}
+				>
                     Login
-                </AppButton>
-            </div>
-            <AppModal isModalOpen={isModalOpen} onClose={onModalClose}>
+				</AppButton>
+			</div>
+			<AppModal isModalOpen={isModalOpen} onClose={onModalClose}>
                 Hello world
-            </AppModal>
-        </div>
-    )
+			</AppModal>
+		</div>
+	)
 }
 
 export default MainPage

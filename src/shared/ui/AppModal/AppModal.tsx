@@ -1,8 +1,8 @@
 import { AppButton } from '../AppButton/AppButton'
 import { AppPortal } from '../AppPortal/AppPortal'
 import cls from './AppModal.module.scss'
-import { ReactNode } from "react"
-import CancelIcon from "shared/assets/icons/Cancel.svg"
+import { ReactNode } from 'react'
+import CancelIcon from 'shared/assets/icons/Cancel.svg'
 
 interface AppModalProps {
     children: ReactNode
@@ -12,36 +12,36 @@ interface AppModalProps {
 }
 
 export const AppModal = (props: AppModalProps) => {
-    const {
-        children,
-        className,
-        isModalOpen,
-        onClose
-    } = props
+	const {
+		children,
+		className,
+		isModalOpen,
+		onClose
+	} = props
 
-    const onModalClose = () => {
-        onClose()
-    }
+	const onModalClose = () => {
+		onClose()
+	}
 
-    return (
-        <AppPortal>
-            <div
-                className={`${cls.AppModal} ${isModalOpen ? cls.opened : 'undefined'} ${className}`}
-            >
-                <div className={cls.overlay}>
-                    <div className={cls.content}>
-                        <div className={cls.header}>
-                            <AppButton onClick={onModalClose} className={cls.button}>
-                                <CancelIcon className='icon'/>
-                            </AppButton>
-                        </div>
-                        <div className={cls.body}>
-                            {children}
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </AppPortal>
+	return (
+		<AppPortal>
+			<div
+				className={`${cls.AppModal} ${isModalOpen ? cls.opened : 'undefined'} ${className}`}
+			>
+				<div className={cls.overlay}>
+					<div className={cls.content}>
+						<div className={cls.header}>
+							<AppButton onClick={onModalClose} className={cls.button}>
+								<CancelIcon className='icon'/>
+							</AppButton>
+						</div>
+						<div className={cls.body}>
+							{children}
+						</div>
+					</div>
+				</div>
+			</div>
+		</AppPortal>
 
-    )
+	)
 }

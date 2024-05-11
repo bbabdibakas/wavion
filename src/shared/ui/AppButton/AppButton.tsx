@@ -1,5 +1,5 @@
 import cls from './AppButton.module.scss'
-import { ButtonHTMLAttributes, ReactNode } from "react"
+import { ButtonHTMLAttributes, ReactNode } from 'react'
 
 export enum AppButtonTheme {
     PRIMARY = 'primary',
@@ -13,20 +13,20 @@ interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const AppButton = (props: AppButtonProps) => {
-    const {
-        children,
-        className,
-        theme = AppButtonTheme.CLEAR,
-        ...otherProps
-    } = props
+	const {
+		children,
+		className,
+		theme = AppButtonTheme.CLEAR,
+		...otherProps
+	} = props
 
-    return (
-        <button
-            type="button"
-            className={`${cls.AppButton} ${cls[theme]} ${className}`}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    )
+	return (
+		<button
+			type="button"
+			className={`${cls.AppButton} ${cls[theme]} ${className}`}
+			{...otherProps}
+		>
+			{children}
+		</button>
+	)
 }

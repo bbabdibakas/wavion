@@ -1,5 +1,5 @@
-import { ReactNode } from "react"
-import { createPortal } from "react-dom"
+import { ReactNode } from 'react'
+import { createPortal } from 'react-dom'
 
 interface AppPortalProps{
     children: ReactNode
@@ -7,10 +7,10 @@ interface AppPortalProps{
 }
 
 export const AppPortal = (props: AppPortalProps) => {
-    const {
-        children,
-        element = document.body,
-    } = props
+	const {
+		children,
+		element = document.body,
+	} = props
 
-    return createPortal(children, element)
+	return createPortal(children, element)
 }

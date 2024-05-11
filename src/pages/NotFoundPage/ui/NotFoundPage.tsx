@@ -1,9 +1,9 @@
 const NotFoundPage = () => {
-    return (
-        <div>
+	return (
+		<div>
             NotFoundPage
-        </div>
-    )
+		</div>
+	)
 }
 
 export default NotFoundPage
