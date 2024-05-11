@@ -29,13 +29,16 @@ export default (env: IEnv) => {
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.s[ac]ss$/i,
+                    test: /\.s[c]ss$/i,
                     use: [
                         isDev ? "style-loader" : MiniCssExtractPlugin.loader,
                         {
                             loader: "css-loader",
                             options: {
-                                modules: true,
+                                modules: {
+                                    auto: (resPath: string) => Boolean(resPath.includes('.module.')),
+                                    localIdentName: isDev ? '[path][name]__[hash:base64:5]' : '[hash:base64:5]'
+                                },
                             }
                         },
                         "sass-loader",
@@ -45,6 +48,10 @@ export default (env: IEnv) => {
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
+            modules: [ path.resolve(__dirname, "src"), "node_modules"],
+            preferAbsolute: true,
+            mainFiles: ['index'],
+            alias: {}
         },
         plugins: [
             new HtmlWebpackPlugin({
