@@ -5,7 +5,7 @@ import type { Configuration as DevServerConfiguration } from 'webpack-dev-server
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 
 interface IEnv {
-    mode: 'development' | 'production'
+	mode: 'development' | 'production'
 }
 
 export default (env: IEnv) => {
@@ -62,7 +62,9 @@ export default (env: IEnv) => {
 			new HtmlWebpackPlugin({
 				template: path.resolve(__dirname, 'public', 'index.html')
 			}),
-			new MiniCssExtractPlugin()
+			new MiniCssExtractPlugin(),
+			new webpack.DefinePlugin({ __IS_DEV__: JSON.stringify(isDev) }),
+			new webpack.ProgressPlugin()
 		],
 		devtool: 'inline-source-map',
 		devServer: {
