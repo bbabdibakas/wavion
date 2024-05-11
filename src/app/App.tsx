@@ -1,4 +1,5 @@
 import { MainPage } from "pages/MainPage"
+import { NotFoundPage } from "pages/NotFoundPage"
 import { ProfilePage } from "pages/ProfilePage"
 import { Link, Route, Routes } from "react-router-dom"
 import { Sidebar } from "widgets/Sidebar"
@@ -12,6 +13,7 @@ export function App() {
                     <Routes>
                         <Route path={'/'} element={<MainPage />} />
                         <Route path={'/profile'} element={<ProfilePage />} />
+                        <Route path={'/*'} element={<NotFoundPage />} />
                     </Routes>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom"
+import { useLocation } from "react-router-dom"
 import cls from './Sidebar.module.scss'
 import { AppLink } from "shared/ui/AppLink/AppLink"
 import MainPageIcon from "shared/assets/icons/MainPage.svg"

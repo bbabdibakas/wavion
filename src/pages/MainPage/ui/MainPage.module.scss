@@ -1,0 +1,15 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.button {
+    padding: 14px;
+    border-radius: 5px;
+
+    &:hover {
+        opacity: 0.8;
+    }
+}

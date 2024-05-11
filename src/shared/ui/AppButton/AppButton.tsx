@@ -1,0 +1,32 @@
+import cls from './AppButton.module.scss'
+import { ButtonHTMLAttributes, ReactNode } from "react"
+
+export enum AppButtonTheme {
+    PRIMARY = 'primary',
+    CLEAR = 'clear'
+}
+
+interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    children: ReactNode
+    className?: string
+    theme?: AppButtonTheme
+}
+
+export const AppButton = (props: AppButtonProps) => {
+    const {
+        children,
+        className,
+        theme = AppButtonTheme.CLEAR,
+        ...otherProps
+    } = props
+
+    return (
+        <button
+            type="button"
+            className={`${cls.AppButton} ${cls[theme]} ${className}`}
+            {...otherProps}
+        >
+            {children}
+        </button>
+    )
+}
