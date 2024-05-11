@@ -1,8 +1,8 @@
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
 import cls from './MainPage.module.scss'
 import { useState } from 'react'
-import { AppModal } from 'shared/ui/AppModal/AppModal'
 import { Counter } from 'entities/Counter'
+import { AuthModal } from 'features/AuthByUsername'
 
 const MainPage = () => {
 
@@ -28,9 +28,7 @@ const MainPage = () => {
 				</AppButton>
 			</div>
 			<Counter />
-			<AppModal isModalOpen={isModalOpen} onClose={onModalClose}>
-                Hello world
-			</AppModal>
+			<AuthModal isModalOpen={isModalOpen} onClose={onModalClose} />
 		</div>
 	)
 }
