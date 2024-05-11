@@ -1,3 +1,12 @@
 :root {
+    --font-family: sans-serif;
+    --font-size: 12px;
+    --font-line: 20px;
+    --font: var(--font-size) / var(--font-line) var(--font-family);
+
+    /* colors */
     --app-bg-color: #000;
+    --primary-color: #fff;
+    --hover-color: #181818;
+    --border-color: #2F3336;
 }

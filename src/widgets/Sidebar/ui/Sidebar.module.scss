@@ -1,0 +1,21 @@
+.Sidebar {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    background: var(--app-bg-color);
+}
+
+.link {
+    margin: 4px 0;
+    padding: 14px;
+    border-radius: 30px;
+    width: fit-content;
+
+    &:hover {
+        background: var(--hover-color);
+    }
+}
+
+.label {
+    margin: 0 14px;
+}

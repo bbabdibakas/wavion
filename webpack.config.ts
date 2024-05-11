@@ -24,6 +24,11 @@ export default (env: IEnv) => {
         module: {
             rules: [
                 {
+                    test: /\.svg$/i,
+                    issuer: /\.[jt]sx?$/,
+                    use: ['@svgr/webpack'],
+                },
+                {
                     test: /\.tsx?$/,
                     use: 'ts-loader',
                     exclude: /node_modules/,
@@ -48,7 +53,7 @@ export default (env: IEnv) => {
         },
         resolve: {
             extensions: ['.tsx', '.ts', '.js'],
-            modules: [ path.resolve(__dirname, "src"), "node_modules"],
+            modules: [path.resolve(__dirname, "src"), "node_modules"],
             preferAbsolute: true,
             mainFiles: ['index'],
             alias: {}
