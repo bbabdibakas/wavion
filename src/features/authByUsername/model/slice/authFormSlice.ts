@@ -17,6 +17,10 @@ export const authFormSlice = createSlice({
 		onSetPassword: (state, action: PayloadAction<string>) => {
 			state.password = action.payload
 		},
+		onClearState: (state) => {
+			state.username = ''
+			state.password = ''
+		},
 	},
 })
 

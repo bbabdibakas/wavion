@@ -9,6 +9,7 @@ import { getAuthFormIsErrorMessage } from '../../model/selectors/getAuthFormIsEr
 import { getAuthFormIsLoading } from '../../model/selectors/getAuthFormIsLoading/getAuthFormIsLoading'
 import { getAuthFormPassword } from '../../model/selectors/getAuthFormPassword/getAuthFormPassword'
 import { getAuthFormUsername } from '../../model/selectors/getAuthFormUsername/getAuthFormUsername'
+import { authByUsername } from '../../model/services/authByUsername/authByUsername'
 
 export const AuthForm = () => {
 	const dispatch = useDispatch()
@@ -26,10 +27,15 @@ export const AuthForm = () => {
 		dispatch(authFormActions.onSetPassword(value))
 	}, [dispatch])
 
+	const onLogin = useCallback(async () => {
+		//@ts-expect-error fix later
+		await dispatch(authByUsername({ username, password }))
+	}, [dispatch, username, password])
+
 	return (
 		<div className={cls.AuthForm}>
 			<div className={cls.title}>
-                Welcome to Wavion
+				Welcome to Wavion
 			</div>
 			<AppInput
 				placeholder='Username'
@@ -41,8 +47,13 @@ export const AuthForm = () => {
 				value={password}
 				onChange={onChangePassword}
 			/>
-			<AppButton theme={AppButtonTheme.PRIMARY} disabled={isLoading} className={cls.button}>
-                Login
+			<AppButton
+				onClick={onLogin}
+				theme={AppButtonTheme.PRIMARY}
+				disabled={isLoading}
+				className={cls.button}
+			>
+				Login
 				{isLoading && <AppLoader />}
 			</AppButton>
 			{isErrorMessage}
