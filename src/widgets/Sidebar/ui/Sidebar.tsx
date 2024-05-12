@@ -16,8 +16,8 @@ export const Sidebar = () => {
                     Home
 				</div>
 			</AppLink>
-			<AppLink to={'/profile'} className={cls.link}>
-				{location.pathname === '/profile' ? <ProfilePageActiveIcon className="icon" /> : <ProfilePageIcon className="icon" />}
+			<AppLink to={'/profile/1'} className={cls.link}>
+				{location.pathname === '/profile/1' ? <ProfilePageActiveIcon className="icon" /> : <ProfilePageIcon className="icon" />}
 				<div className={cls.label}>
                     Profile
 				</div>

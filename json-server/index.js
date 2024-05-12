@@ -42,6 +42,15 @@ server.post('/login', (req, res) => {
     }
 })
 
+server.use(async (req, res, next) => {
+    if (!req.headers.authorization) {
+        return res.status(403).json({
+            error: 'User is not authorized'
+        })
+    }
+    next()
+})
+
 server.use(router)
 server.listen(8000, () => {
     console.log('[json-server]: is running on port 8000')

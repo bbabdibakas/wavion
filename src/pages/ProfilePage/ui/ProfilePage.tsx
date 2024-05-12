@@ -1,9 +1,12 @@
-import { Counter } from 'entities/Counter'
+import { ProfileDetails } from "entities/Profile"
+import { useParams } from "react-router-dom"
 
 const ProfilePage = () => {
+	const { id } = useParams<{ id: string }>()
+
 	return (
 		<div>
-			<Counter />
+			<ProfileDetails id={id} />
 		</div>
 	)
 }
