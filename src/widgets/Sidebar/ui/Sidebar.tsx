@@ -9,7 +9,7 @@ import ProfilePageActiveIcon from 'shared/assets/icons/ProfilePageActive.svg'
 export const Sidebar = () => {
 	const location = useLocation()
 	return (
-		<div className={cls.Sidebar}>
+		<div className={cls.Sidebar} data-testid='sidebar'>
 			<AppLink to={'/'} className={cls.link}>
 				{location.pathname === '/' ? <MainPageActiveIcon className="icon" /> : <MainPageIcon className="icon" />}
 				<div className={cls.label}>
