@@ -1,22 +1,27 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { ReducersMapObject, configureStore } from '@reduxjs/toolkit'
 import { counterReducer } from 'entities/Counter'
 import { RootState } from './RootState'
-import { authFormReducer } from 'features/AuthByUsername'
 import { userReducer } from 'entities/User'
+import { createReducerManager } from './reducerManager'
 
-export const createReduxStore = (initialState?: RootState) => {
-	const rootReducer = {
+export const createReduxStore = (initialState?: RootState, asyncReducers?: ReducersMapObject<RootState>) => {
+	const rootReducer: ReducersMapObject<RootState> = {
+		...asyncReducers,
 		counter: counterReducer,
 		user: userReducer,
-		authForm: authFormReducer,
 	}
 
+	const reducerManager = createReducerManager(rootReducer)
+
 	const store = configureStore({
-		reducer: rootReducer,
+		reducer: reducerManager.reduce,
 		devTools: __IS_DEV__,
 		preloadedState: initialState
 	})
-    
+
+	//@ts-expect-error fix later
+	store.reducerManager = reducerManager
+
 	return store
 }
 

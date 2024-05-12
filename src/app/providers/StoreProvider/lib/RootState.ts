@@ -5,5 +5,7 @@ import { AuthFormState } from 'features/AuthByUsername'
 export interface RootState {
     counter: CounterState
     user: UserState
-    authForm: AuthFormState
+    authForm?: AuthFormState
 }
+
+export type RootStateKey = keyof RootState

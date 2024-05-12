@@ -52,7 +52,7 @@ const MainPage = () => {
 					Login
 				</AppButton>
 			</div>
-			<AuthModal isModalOpen={isModalOpen} onClose={onModalClose} />
+			{isModalOpen && <AuthModal isModalOpen={isModalOpen} onClose={onModalClose} />}
 		</div>
 	)
 }

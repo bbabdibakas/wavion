@@ -3,7 +3,7 @@ import cls from './AuthForm.module.scss'
 import { AppInput } from 'shared/ui/AppInput/AppInput'
 import { useSelector } from 'react-redux'
 import { useCallback, useEffect } from 'react'
-import { authFormActions } from '../../model/slice/authFormSlice'
+import { authFormActions, authFormReducer } from '../../model/slice/authFormSlice'
 import { AppLoader } from 'shared/ui/AppLoader/AppLoader'
 import { getAuthFormIsErrorMessage } from '../../model/selectors/getAuthFormIsErrorMessage/getAuthFormIsErrorMessage'
 import { getAuthFormIsLoading } from '../../model/selectors/getAuthFormIsLoading/getAuthFormIsLoading'
@@ -11,12 +11,17 @@ import { getAuthFormPassword } from '../../model/selectors/getAuthFormPassword/g
 import { getAuthFormUsername } from '../../model/selectors/getAuthFormUsername/getAuthFormUsername'
 import { authByUsername } from '../../model/services/authByUsername/authByUsername'
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch'
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 
-interface AuthFormProps {
+export interface AuthFormProps {
 	onSuccess: () => void
 }
 
-export const AuthForm = ({ onSuccess }: AuthFormProps) => {
+const initialReducers: ReducersList = {
+	authForm: authFormReducer
+}
+
+const AuthForm = ({ onSuccess }: AuthFormProps) => {
 	const dispatch = useAppDispatch()
 
 	const username = useSelector(getAuthFormUsername)
@@ -54,30 +59,35 @@ export const AuthForm = ({ onSuccess }: AuthFormProps) => {
 	}, [username, password])
 
 	return (
-		<div className={cls.AuthForm}>
-			<div className={cls.title}>
-				Welcome to Wavion
+		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+			<div className={cls.AuthForm}>
+				<div className={cls.title}>
+					Welcome to Wavion
+				</div>
+				<AppInput
+					placeholder='Username'
+					value={username}
+					onChange={onChangeUsername}
+				/>
+				<AppInput
+					placeholder='Password'
+					value={password}
+					onChange={onChangePassword}
+				/>
+				<AppButton
+					onClick={onLogin}
+					theme={AppButtonTheme.PRIMARY}
+					disabled={isLoading}
+					className={cls.button}
+				>
+					Login
+					{isLoading && <AppLoader />}
+				</AppButton>
+				{isErrorMessage}
 			</div>
-			<AppInput
-				placeholder='Username'
-				value={username}
-				onChange={onChangeUsername}
-			/>
-			<AppInput
-				placeholder='Password'
-				value={password}
-				onChange={onChangePassword}
-			/>
-			<AppButton
-				onClick={onLogin}
-				theme={AppButtonTheme.PRIMARY}
-				disabled={isLoading}
-				className={cls.button}
-			>
-				Login
-				{isLoading && <AppLoader />}
-			</AppButton>
-			{isErrorMessage}
-		</div>
+		</DynamicModuleLoader>
+
 	)
 }
+
+export default AuthForm

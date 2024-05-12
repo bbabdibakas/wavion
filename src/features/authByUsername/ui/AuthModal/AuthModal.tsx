@@ -1,10 +1,12 @@
 import { AppModal } from 'shared/ui/AppModal/AppModal'
-import { AuthForm } from '../AuthForm/AuthForm'
+import { AuthFormAsync } from '../AuthForm/AuthForm.async'
+import { Suspense } from 'react'
+import { AppLoader } from 'shared/ui/AppLoader/AppLoader'
 
 interface AuthModalProps {
-    className?: string
-    isModalOpen: boolean
-    onClose: () => void
+	className?: string
+	isModalOpen: boolean
+	onClose: () => void
 }
 
 export const AuthModal = (props: AuthModalProps) => {
@@ -16,7 +18,9 @@ export const AuthModal = (props: AuthModalProps) => {
 
 	return (
 		<AppModal isModalOpen={isModalOpen} onClose={onClose} className={className}>
-			<AuthForm onSuccess={onClose}/>
+			<Suspense fallback={<AppLoader />}>
+				<AuthFormAsync onSuccess={onClose} />
+			</Suspense>
 		</AppModal>
 	)
 }
