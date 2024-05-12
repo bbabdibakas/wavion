@@ -1,7 +1,8 @@
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './AppLoader.module.scss'
 
 interface AppAppLoaderProps {
-    className?: string
+	className?: string
 }
 
 export const AppLoader = (props: AppAppLoaderProps) => {
@@ -10,6 +11,8 @@ export const AppLoader = (props: AppAppLoaderProps) => {
 	} = props
 
 	return (
-		<div className={`${cls.AppLoader} ${className}`}/>
+		<div
+			className={classNames(cls.AppLoader, [className])}
+		/>
 	)
 }

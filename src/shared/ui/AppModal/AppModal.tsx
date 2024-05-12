@@ -1,3 +1,4 @@
+import { classNames } from 'shared/lib/classNames/classNames'
 import { AppButton } from '../AppButton/AppButton'
 import { AppPortal } from '../AppPortal/AppPortal'
 import cls from './AppModal.module.scss'
@@ -5,10 +6,10 @@ import { ReactNode } from 'react'
 import CancelIcon from 'shared/assets/icons/Cancel.svg'
 
 interface AppModalProps {
-    children: ReactNode
-    className?: string
-    isModalOpen: boolean
-    onClose: () => void
+	children: ReactNode
+	className?: string
+	isModalOpen: boolean
+	onClose: () => void
 }
 
 export const AppModal = (props: AppModalProps) => {
@@ -26,13 +27,13 @@ export const AppModal = (props: AppModalProps) => {
 	return (
 		<AppPortal>
 			<div
-				className={`${cls.AppModal} ${isModalOpen ? cls.opened : 'undefined'} ${className}`}
+				className={classNames(cls.AppModal, [className], { [cls.opened]: isModalOpen })}
 			>
 				<div className={cls.overlay}>
 					<div className={cls.content}>
 						<div className={cls.header}>
 							<AppButton onClick={onModalClose} className={cls.button}>
-								<CancelIcon className='icon'/>
+								<CancelIcon className='icon' />
 							</AppButton>
 						</div>
 						<div className={cls.body}>

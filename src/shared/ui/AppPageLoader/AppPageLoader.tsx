@@ -1,8 +1,9 @@
+import { classNames } from 'shared/lib/classNames/classNames'
 import { AppLoader } from '../AppLoader/AppLoader'
 import cls from './AppPageLoader.module.scss'
 
 interface AppPageLoaderProps {
-    className?: string
+	className?: string
 }
 
 export const AppPageLoader = (props: AppPageLoaderProps) => {
@@ -11,8 +12,10 @@ export const AppPageLoader = (props: AppPageLoaderProps) => {
 	} = props
 
 	return (
-		<div className={`${cls.AppPageLoader} ${className}`}>
+		<div
+			className={classNames(cls.AppPageLoader, [className])}
+		>
 			<AppLoader />
-		</div>
+		</div >
 	)
 }

@@ -1,3 +1,4 @@
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './AppInput.module.scss'
 import { ChangeEvent, InputHTMLAttributes, useState } from 'react'
 
@@ -41,10 +42,10 @@ export const AppInput = (props: AppInputProps) => {
 				onChange={onChangeHandler}
 				onBlur={onBlurHandler}
 				onFocus={onFocusHandler}
-				className={`${cls.AppInput} ${className}`}
+				className={classNames(cls.AppInput, [className])}
 				{...otherProps}
 			/>
-			<div className={`${cls.placeholder} ${isFocused ? cls.focused : 'undefined'}`}>
+			<div className={classNames(cls.placeholder, [], { [cls.focused]: isFocused })}>
 				{placeholder}
 			</div>
 		</div>

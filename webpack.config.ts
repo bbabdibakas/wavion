@@ -29,6 +29,18 @@ export default (env: IEnv) => {
 					use: ['@svgr/webpack'],
 				},
 				{
+					test: /\.(js|jsx|tsx)$/,
+					exclude: /node_modules/,
+					use: {
+						loader: 'babel-loader',
+						options: {
+							presets: [
+								['@babel/preset-env', { targets: 'defaults' }]
+							]
+						}
+					}
+				},
+				{
 					test: /\.tsx?$/,
 					use: 'ts-loader',
 					exclude: /node_modules/,
@@ -42,7 +54,7 @@ export default (env: IEnv) => {
 							options: {
 								modules: {
 									auto: (resPath: string) => Boolean(resPath.includes('.module.')),
-									localIdentName: isDev ? '[path][name]__[hash:base64:5]' : '[hash:base64:5]'
+									localIdentName: isDev ? '[path][name]__[local]--[hash:base64:5]' : '[hash:base64:8]'
 								},
 							}
 						},

@@ -1,3 +1,4 @@
+import { classNames } from 'shared/lib/classNames/classNames'
 import cls from './AppButton.module.scss'
 import { ButtonHTMLAttributes, ReactNode } from 'react'
 
@@ -23,7 +24,7 @@ export const AppButton = (props: AppButtonProps) => {
 	return (
 		<button
 			type="button"
-			className={`${cls.AppButton} ${cls[theme]} ${className}`}
+			className={classNames(cls.AppButton, [cls[theme], className])}
 			{...otherProps}
 		>
 			{children}

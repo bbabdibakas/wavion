@@ -1,6 +1,7 @@
 import { Link, LinkProps } from 'react-router-dom'
 import cls from './AppLink.module.scss'
 import { ReactNode } from 'react'
+import { classNames } from 'shared/lib/classNames/classNames'
 
 interface AppLinkProps extends LinkProps {
     children: ReactNode
@@ -17,7 +18,7 @@ export const AppLink = (props: AppLinkProps) => {
 	return (
 		<Link
 			to={to}
-			className={`${cls.AppLink} ${className}`}
+			className={classNames(cls.AppLink, [className])}
 			{...otherProps}
 		>
 			{children}
