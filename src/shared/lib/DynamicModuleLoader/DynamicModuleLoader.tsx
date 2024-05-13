@@ -1,6 +1,5 @@
 import { Reducer } from '@reduxjs/toolkit'
-import { RootStateKey } from 'app/providers/StoreProvider/lib/RootState'
-import { ReduxStoreWithManager } from 'app/providers/StoreProvider/lib/reducerManager'
+import { ReduxStoreWithManager, RootStateKey } from 'app/providers/StoreProvider'
 import { ReactNode, useEffect } from 'react'
 import { useDispatch, useStore } from 'react-redux'
 

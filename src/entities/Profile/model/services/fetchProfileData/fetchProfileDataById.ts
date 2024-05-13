@@ -1,19 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
 import { Profile } from '../../types/profile'
-import { USER_LOCALSTORAGE_KEY } from 'shared/const/localstorage'
+import { ThunkConfig } from 'app/providers/StoreProvider'
 
-export const fetchProfileDataById = createAsyncThunk<Profile, string, { rejectValue: string }>(
+export const fetchProfileDataById = createAsyncThunk<Profile, string, ThunkConfig<string>>(
     'profile/fetchProfileDataById',
     async (profileId, thunkApi) => {
-        const { rejectWithValue } = thunkApi
+        const { rejectWithValue, extra } = thunkApi
 
         try {
-            const response = await axios.get<Profile>(`http://localhost:8000/profiles/${profileId}`, {
-                headers: {
-                    Authorization: localStorage.getItem(USER_LOCALSTORAGE_KEY)
-                }
-            })
+            const response = await extra.api.get<Profile>(`/profiles/${profileId}`)
 
             if (!response.data) {
                 throw new Error('some error')

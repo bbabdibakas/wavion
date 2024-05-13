@@ -1,3 +1,4 @@
+import { AxiosInstance } from 'axios'
 import { CounterState } from 'entities/Counter'
 import { ProfileState } from 'entities/Profile'
 import { UserState } from 'entities/User'
@@ -11,3 +12,13 @@ export interface RootState {
 }
 
 export type RootStateKey = keyof RootState
+
+export interface ThunkExtraArg {
+    api: AxiosInstance
+}
+
+export interface ThunkConfig<T> {
+    rejectValue: T
+    extra: ThunkExtraArg
+    state: RootState
+}
