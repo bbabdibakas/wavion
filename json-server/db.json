@@ -14,5 +14,12 @@
             "name": "Bekzat Abdibakas",
             "bio": "nothing..."
         }
+    ],
+    "posts": [
+        {
+            "id": "1",
+            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+            "profileId": "1"
+        }
     ]
 }

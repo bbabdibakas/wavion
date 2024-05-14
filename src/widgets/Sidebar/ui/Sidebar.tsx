@@ -22,6 +22,12 @@ export const Sidebar = () => {
                     Profile
 				</div>
 			</AppLink>
+			<AppLink to={'/post/1'} className={cls.link}>
+				{location.pathname === '/post/1' ? <ProfilePageActiveIcon className="icon" /> : <ProfilePageIcon className="icon" />}
+				<div className={cls.label}>
+                    Post
+				</div>
+			</AppLink>
 		</div>
 	)
 }
