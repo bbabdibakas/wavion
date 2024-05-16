@@ -1,43 +1,55 @@
 {
-    "users": [
-        {
-            "id": "1",
-            "username": "babdibakas",
-            "password": "12345",
-            "profileId": "1"
-        }
-    ],
-    "profiles": [
-        {
-            "id": "1",
-            "username": "babdibakas",
-            "name": "Bekzat Abdibakas",
-            "bio": "nothing..."
-        }
-    ],
-    "posts": [
-        {
-            "id": "1",
-            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
-            "profileId": "1"
-        },
-        {
-            "id": "2",
-            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
-            "profileId": "1",
-            "postId": "1"
-        },
-        {
-            "id": "3",
-            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
-            "profileId": "1",
-            "postId": "1"
-        },
-        {
-            "id": "4",
-            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
-            "profileId": "1",
-            "postId": "1"
-        }
-    ]
+  "users": [
+    {
+      "id": "1",
+      "username": "babdibakas",
+      "password": "12345",
+      "profileId": "1"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "1",
+      "username": "babdibakas",
+      "name": "Bekzat Abdibakas",
+      "bio": "nothing..."
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+      "profileId": "1",
+      "postId": "1"
+    },
+    {
+      "id": "3",
+      "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+      "profileId": "1",
+      "postId": "1"
+    },
+    {
+      "id": "4",
+      "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+      "profileId": "1",
+      "postId": "1"
+    },
+    {
+      "postId": "1",
+      "paragraph": "blablabla",
+      "profileId": "1",
+      "id": "ihkfim3"
+    },
+    {
+      "postId": "3",
+      "paragraph": "blablabla",
+      "profileId": "1",
+      "id": "lHezEQp"
+    }
+  ]
 }

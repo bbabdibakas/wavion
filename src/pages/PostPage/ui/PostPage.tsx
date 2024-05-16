@@ -8,6 +8,7 @@ import { getPostPageIsErrorMessage } from '../model/selectors/getPostPageIsError
 import { getPostPageIsLoading } from '../model/selectors/getPostPageIsLoading/getPostPageIsLoading'
 import { useEffect } from 'react'
 import { fetchPostsDataByPostId } from '../model/services/fetchPostsDataByPostId'
+import { AddReplyForm } from 'features/AddReplyByPostId'
 
 const initialReducers: ReducersList = {
 	postPage: postPageReducer
@@ -29,6 +30,7 @@ const PostPage = () => {
 	return (
 		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
 			<PostDetails id={id} />
+			<AddReplyForm />
 			<PostList
 				posts={postsData}
 				isLoading={isLoading}
