@@ -10,8 +10,8 @@
     "start": "npx concurrently \"npm run start:dev\" \"npm run start:json-server\"",
     "lint:ts": "eslint \"**/*.{ts,tsx}\"",
     "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
-    "scss:ts": "npx stylelint \"**/*.scss\"",
-    "scss:ts:fix": "npx stylelint \"**/*.scss\" --fix",
+    "lint:scss": "npx stylelint \"**/*.scss\"",
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
     "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "keywords": [],

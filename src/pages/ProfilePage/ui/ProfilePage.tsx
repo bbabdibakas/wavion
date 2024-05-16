@@ -1,5 +1,5 @@
-import { ProfileDetails } from "entities/Profile"
-import { useParams } from "react-router-dom"
+import { ProfileDetails } from 'entities/Profile'
+import { useParams } from 'react-router-dom'
 
 const ProfilePage = () => {
 	const { id } = useParams<{ id: string }>()

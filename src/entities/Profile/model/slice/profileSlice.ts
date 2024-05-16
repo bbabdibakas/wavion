@@ -23,7 +23,7 @@ export const profileSlice = createSlice({
 			.addCase(fetchProfileDataById.fulfilled, (state, action: PayloadAction<Profile>) => {
 				state.isLoading = false
 				state.isErrorMessage = undefined
-                state.profileData = action.payload
+				state.profileData = action.payload
 			})
 	}
 })

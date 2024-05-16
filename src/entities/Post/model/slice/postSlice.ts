@@ -23,7 +23,7 @@ export const postSlice = createSlice({
 			.addCase(fetchPostDataById.fulfilled, (state, action: PayloadAction<Post>) => {
 				state.isLoading = false
 				state.isErrorMessage = undefined
-                state.postData = action.payload
+				state.postData = action.payload
 			})
 	}
 })
