@@ -4,6 +4,10 @@ import { PostPage } from 'pages/PostPage'
 import { ProfilePage } from 'pages/ProfilePage'
 import { RouteProps } from 'react-router-dom'
 
+export type AppRouterProps = RouteProps & {
+	isRequiredAuth?: boolean
+}
+
 export enum AppRoutes {
 	MAIN = 'main',
 	PROFILE = 'profile',
@@ -22,18 +26,20 @@ export const routePath: Record<AppRoutes, string> = {
 	[AppRoutes.NOT_FOUND]: '/*',
 }
 
-export const routeConfig: Record<AppRoutes, RouteProps> = {
+export const routeConfig: Record<AppRoutes, AppRouterProps> = {
 	[AppRoutes.MAIN]: {
 		path: routePath.main,
 		element: <MainPage />
 	},
 	[AppRoutes.PROFILE]: {
 		path: `${routePath.profile}:id`,
-		element: <ProfilePage />
+		element: <ProfilePage />,
+		isRequiredAuth: true
 	},
 	[AppRoutes.POST]: {
 		path: `${routePath.post}:id`,
-		element: <PostPage />
+		element: <PostPage />,
+		isRequiredAuth: true
 	},
 
 	//last
