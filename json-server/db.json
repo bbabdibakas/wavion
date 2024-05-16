@@ -20,6 +20,24 @@
             "id": "1",
             "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
             "profileId": "1"
+        },
+        {
+            "id": "2",
+            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+            "profileId": "1",
+            "postId": "1"
+        },
+        {
+            "id": "3",
+            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+            "profileId": "1",
+            "postId": "1"
+        },
+        {
+            "id": "4",
+            "paragraph": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nihil soluta excepturi pariatur inventore ea repellat, odit dicta aperiam, unde fuga, debitis laboriosam modi. Doloribus, mollitia alias. Deserunt tempora repellat harum.",
+            "profileId": "1",
+            "postId": "1"
         }
     ]
 }

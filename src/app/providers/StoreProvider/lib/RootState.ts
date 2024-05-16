@@ -4,12 +4,14 @@ import { PostState } from 'entities/Post'
 import { ProfileState } from 'entities/Profile'
 import { UserState } from 'entities/User'
 import { AuthFormState } from 'features/AuthByUsername'
+import { PostPageState } from 'pages/PostPage'
 
 export interface RootState {
     counter: CounterState
     user: UserState
     profile?: ProfileState
     post?: PostState
+    postPage?: PostPageState
     authForm?: AuthFormState
 }
 

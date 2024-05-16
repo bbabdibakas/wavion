@@ -4,6 +4,7 @@ export interface Post {
     id: string
     paragraph: string
     profile: Profile
+    postId?: string
 }
 
 export interface PostState {
