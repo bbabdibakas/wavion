@@ -7,14 +7,14 @@ import { useSelector } from 'react-redux'
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader'
 import { useAppDispatch } from 'shared/lib/useAppDispatch/useAppDispatch'
 import { AppButton, AppButtonTheme } from 'shared/ui/AppButton/AppButton'
-import { AppInput } from 'shared/ui/AppInput/AppInput'
 import cls from './AddReplyForm.module.scss'
 import { AppLoader } from 'shared/ui/AppLoader/AppLoader'
 import { addReplyByPostId } from 'features/AddReplyByPostId/model/services/addReplyByPostId/addReplyByPostId'
 import { classNames } from 'shared/lib/classNames/classNames'
+import { AppTextArea } from 'shared/ui/AppTextArea/AppTextArea'
 
 export interface AddReplyFormProps {
-    className?: string
+	className?: string
 }
 
 const initialReducers: ReducersList = {
@@ -29,7 +29,9 @@ export const AddReplyForm = ({ className }: AddReplyFormProps) => {
 	const isErrorMessage = useSelector(getAddReplyFormIsErrorMessage)
 
 	const onChangeParagraph = useCallback((value: string) => {
-		dispatch(addReplyFormActions.onSetParagraph(value))
+		if (value.split('\n').length < 10) {
+			dispatch(addReplyFormActions.onSetParagraph(value))
+		}
 	}, [dispatch])
 
 	const onAddReply = useCallback(async () => {
@@ -39,14 +41,14 @@ export const AddReplyForm = ({ className }: AddReplyFormProps) => {
 	return (
 		<DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
 			<div className={classNames(cls.AddReplyForm, [className])}>
-				<AppInput value={paragraph} onChange={onChangeParagraph} />
+				<AppTextArea value={paragraph} onChange={onChangeParagraph} placeholder='Reply' />
 				<AppButton
 					onClick={onAddReply}
 					theme={AppButtonTheme.PRIMARY}
 					disabled={isLoading}
 					className={cls.button}
 				>
-                    Reply
+					Reply
 					{isLoading && <AppLoader />}
 				</AppButton>
 			</div>

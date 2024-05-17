@@ -12,16 +12,33 @@
     color: var(--primary-color);
 }
 
-.wrapper {
-    height: 100vh;
-    width: 1200px;
+.sidebarWrapper {
+    width: calc(50% - 400px);
     display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+.layoutWrapper {
+    width: calc(50% + 400px);
+    overflow: auto;
+    height: 100%;
+}
+
+.layoutBackground {
+    z-index: 1;
+    position: fixed;
+    width: 1000px;
+    height: 100%;
 }
 
 .content {
     border-left: 1px solid var(--border-color);
     border-right: 1px solid var(--border-color);
-    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+    width: 1000px;
+    height: 100%;
 }
 
 .icon {

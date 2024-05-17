@@ -6,16 +6,20 @@ import { userActions } from 'entities/User'
 
 export function App() {
 	const dispatch = useDispatch()
-	
-	useEffect(()=>{
+
+	useEffect(() => {
 		dispatch(userActions.initUserData())
-	},[])
+	}, [])
 
 	return (
 		<div className="app">
-			<div className="wrapper">
+			<div className="sidebarWrapper">
 				<Sidebar />
-				<AppRouter />
+			</div>
+			<div className="layoutWrapper">
+				<div className="layoutBackground">
+					<AppRouter />
+				</div>
 			</div>
 		</div>
 	)
