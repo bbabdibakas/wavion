@@ -1,10 +1,11 @@
 import path from 'path'
 import HTMLWebpackPlugin from 'html-webpack-plugin'
 import webpack from 'webpack';
+import webpackDevServer from 'webpack-dev-server';
 
 const config: webpack.Configuration = {
     mode: 'development',
-    entry: path.resolve(__dirname, 'src', 'index.ts'),
+    entry: path.resolve(__dirname, 'src', 'index.tsx'),
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].[contenthash:8].js',
@@ -28,6 +29,10 @@ const config: webpack.Configuration = {
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],
     },
+    devServer: {
+        port: 3000,
+        open: true
+    }
 }
 
 export default config;
