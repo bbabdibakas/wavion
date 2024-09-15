@@ -1,0 +1,8 @@
+@import "reset";
+@import "variables";
+
+.app {
+    background: var(--app-bg-color);
+    color: var(--primary-color);
+    font: var(--font-m);
+}

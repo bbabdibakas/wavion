@@ -4,7 +4,7 @@ import ProfilePage from "./pages/ProfilePage"
 
 const App = () => {
     return (
-        <div>
+        <div className={'app'}>
             <Link to={'/'}>main</Link>
             <Link to={'/profile'}>profile</Link>
             <Routes>
