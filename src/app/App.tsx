@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom"
-import MainPage from "./pages/MainPage"
-import ProfilePage from "./pages/ProfilePage"
-import Sidebar from "./components/Sidebar/Sidebar"
+import { MainPage } from "pages/MainPage"
+import { ProfilePage } from "pages/ProfilePage"
+import { Sidebar } from "widgets/Sidebar"
 
 const App = () => {
     return (

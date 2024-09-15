@@ -1,4 +1,4 @@
-import AppLink from '../ui/AppLink/AppLink'
+import AppLink from 'shared/ui/AppLink/AppLink'
 import cls from './Sidebar.module.scss'
 
 const Sidebar = () => {
