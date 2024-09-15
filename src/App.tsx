@@ -1,16 +1,18 @@
-import { Link, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import MainPage from "./pages/MainPage"
 import ProfilePage from "./pages/ProfilePage"
+import Sidebar from "./components/Sidebar/Sidebar"
 
 const App = () => {
     return (
         <div className={'app'}>
-            <Link to={'/'}>main</Link>
-            <Link to={'/profile'}>profile</Link>
-            <Routes>
-                <Route path="/" element={<MainPage />} />
-                <Route path="/profile" element={<ProfilePage />} />
-            </Routes>
+            <div className={'wrapper'}>
+                <Sidebar />
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/profile" element={<ProfilePage />} />
+                </Routes>
+            </div>
         </div>
     )
 }
