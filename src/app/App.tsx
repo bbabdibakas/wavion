@@ -7,7 +7,6 @@ const App = () => {
     return (
         <div className={'app'}>
             <div className={'wrapper'}>
-                
                 <Sidebar />
                 <Routes>
                     <Route path="/" element={<MainPage />} />
