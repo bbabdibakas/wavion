@@ -8,10 +8,12 @@ const App = () => {
         <div className={'app'}>
             <div className={'wrapper'}>
                 <Sidebar />
-                <Routes>
-                    <Route path="/" element={<MainPage />} />
-                    <Route path="/profile" element={<ProfilePage />} />
-                </Routes>
+                <div className={'content'}>
+                    <Routes>
+                        <Route path="/" element={<MainPage />} />
+                        <Route path="/profile" element={<ProfilePage />} />
+                    </Routes>
+                </div>
             </div>
         </div>
     )

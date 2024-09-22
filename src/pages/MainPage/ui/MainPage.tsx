@@ -1,5 +1,6 @@
 import { useState } from "react"
 import AppButton from "shared/ui/AppButton/AppButton"
+import { AppHeader } from "shared/ui/AppHeader/AppHeader"
 import { AppModal } from "shared/ui/AppModal/AppModal"
 
 const MainPage = () => {
@@ -15,9 +16,11 @@ const MainPage = () => {
 
     return (
         <div>
-            <AppButton onClick={onModalOpen}>
-                Login
-            </AppButton>
+            <AppHeader>
+                <AppButton onClick={onModalOpen}>
+                    Login
+                </AppButton>
+            </AppHeader>
             {
                 isModalOpen && (
                     <AppModal isOpen={isModalOpen} onClose={onModalClose}>

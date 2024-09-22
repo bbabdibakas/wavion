@@ -1,5 +1,6 @@
 import { ButtonHTMLAttributes } from "react"
 import cls from './AppButton.module.scss'
+import { classNames } from "shared/lib/classNames/classNames"
 
 interface AppButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string
@@ -15,7 +16,7 @@ const AppButton = (props: AppButtonProps) => {
     return (
         <button
             type="button"
-            className={`${cls.AppButton} ${className}`}
+            className={classNames(cls.AppButton, {}, [])}
             {...otherProps}
         >
             {children}

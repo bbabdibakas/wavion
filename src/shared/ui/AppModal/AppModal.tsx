@@ -2,6 +2,8 @@ import cls from './AppModal.module.scss';
 import { AppPortal } from '../AppPortal/AppPortal';
 import { ReactNode } from 'react';
 import AppButton from '../AppButton/AppButton';
+import { AppHeader } from '../AppHeader/AppHeader';
+import { classNames } from 'shared/lib/classNames/classNames';
 
 interface AppModalProps {
     className?: string;
@@ -25,14 +27,14 @@ export const AppModal = (props: AppModalProps) => {
 
     return (
         <AppPortal>
-            <div className={`${cls.AppModal} ${isOpen ? cls.opened : undefined} ${className}`}>
+            <div className={classNames(cls.AppModal, { [cls.opened]: isOpen }, [className])}>
                 <div className={cls.overlay}>
                     <div className={cls.content}>
-                        <div className={cls.header}>
+                        <AppHeader>
                             <AppButton onClick={onCloseHandler}>
                                 close
                             </AppButton>
-                        </div>
+                        </AppHeader>
                         <div className={cls.body}>
                             {children}
                         </div>
