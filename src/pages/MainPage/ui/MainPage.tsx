@@ -1,8 +1,7 @@
+import { AuthModal } from "features/AuthByUsername"
 import { useState } from "react"
 import AppButton from "shared/ui/AppButton/AppButton"
 import { AppHeader } from "shared/ui/AppHeader/AppHeader"
-import AppInput from "shared/ui/AppInput/AppInput"
-import { AppModal } from "shared/ui/AppModal/AppModal"
 
 const MainPage = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
@@ -29,11 +28,7 @@ const MainPage = () => {
                 </AppButton>
             </AppHeader>
             {
-                isModalOpen && (
-                    <AppModal isOpen={isModalOpen} onClose={onModalClose}>
-                        <AppInput value={username} onChange={onChangeUsername} placeholder="Username"/>
-                    </AppModal>
-                )
+                isModalOpen && (<AuthModal isOpen={isModalOpen} onClose={onModalClose} />)
             }
         </div>
     )
