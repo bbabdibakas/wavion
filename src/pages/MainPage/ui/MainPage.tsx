@@ -1,16 +1,15 @@
+import { getUserdata, userActions } from "entities/User"
 import { AuthModal } from "features/AuthByUsername"
-import { useState } from "react"
+import { useCallback, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import AppButton, { AppButtonTheme } from "shared/ui/AppButton/AppButton"
 import { AppHeader } from "shared/ui/AppHeader/AppHeader"
 
 const MainPage = () => {
     const [isModalOpen, setIsModalOpen] = useState<boolean>(false)
-
-    const [username, setUsername] = useState<string>('some')
-
-    const onChangeUsername = (value: string) => {
-        setUsername(value)
-    }
+    const dispatch = useDispatch()
+    
+    const userData = useSelector(getUserdata)
 
     const onModalOpen = () => {
         setIsModalOpen(true)
@@ -18,6 +17,22 @@ const MainPage = () => {
 
     const onModalClose = () => {
         setIsModalOpen(false)
+    }
+    
+    const onLogoutHandler = useCallback(() => {
+        dispatch(userActions.resetUserData())
+    }, [dispatch])
+
+    if (userData) {
+        return (
+            <div>
+                <AppHeader>
+                    <AppButton onClick={onLogoutHandler} theme={AppButtonTheme.PRIMARY}>
+                        Logout
+                    </AppButton>
+                </AppHeader>
+            </div>
+        )
     }
 
     return (
@@ -35,3 +50,7 @@ const MainPage = () => {
 }
 
 export default MainPage
+
+function dispatch() {
+    throw new Error("Function not implemented.")
+}
