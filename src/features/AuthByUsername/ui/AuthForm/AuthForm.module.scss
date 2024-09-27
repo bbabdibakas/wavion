@@ -9,12 +9,12 @@
 }
 
 .title {
+    align-self: center;
     margin-bottom: 16px;
     font: var(--font-l);
-    font-weight: 800;
 }
 
 .button {
     align-self: flex-end;
-    font: var(--font-l);
+    font: var(--font-m);
 }

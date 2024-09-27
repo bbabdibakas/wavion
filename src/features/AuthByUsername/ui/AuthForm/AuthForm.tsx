@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux"
 import AppInput from "shared/ui/AppInput/AppInput"
 import { authFormActions } from "../../model/slice/authFormSlice"
 import cls from './AuthForm.module.scss'
-import AppButton from "shared/ui/AppButton/AppButton"
+import AppButton, { AppButtonTheme } from "shared/ui/AppButton/AppButton"
 
 export const AuthForm = () => {
     const dispatch = useDispatch()
@@ -28,7 +28,7 @@ export const AuthForm = () => {
             </div>
             <AppInput value={username} onChange={onChangeUsername} placeholder="Username" className={cls.input} />
             <AppInput value={password} onChange={onChangePassword} placeholder="Password" className={cls.input} />
-            <AppButton className={cls.button}>
+            <AppButton className={cls.button} theme={AppButtonTheme.PRIMARY}>
                 Login
             </AppButton>
         </div>

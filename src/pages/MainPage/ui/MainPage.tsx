@@ -1,6 +1,6 @@
 import { AuthModal } from "features/AuthByUsername"
 import { useState } from "react"
-import AppButton from "shared/ui/AppButton/AppButton"
+import AppButton, { AppButtonTheme } from "shared/ui/AppButton/AppButton"
 import { AppHeader } from "shared/ui/AppHeader/AppHeader"
 
 const MainPage = () => {
@@ -23,7 +23,7 @@ const MainPage = () => {
     return (
         <div>
             <AppHeader>
-                <AppButton onClick={onModalOpen}>
+                <AppButton onClick={onModalOpen} theme={AppButtonTheme.PRIMARY}>
                     Login
                 </AppButton>
             </AppHeader>

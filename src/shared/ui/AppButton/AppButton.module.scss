@@ -1,8 +1,26 @@
 .AppButton {
+    display: flex;
     cursor: pointer;
     color: var(--primary-color);
-    background: var(--highlight-color);
     border: none;
-    padding: 8px 16px;
     border-radius: 8px;
+    padding: 8px;
+}
+
+.clear {
+    background: none;
+    border: none;
+
+    &:hover {
+        background: var(--hover-color);
+    }
+}
+
+.primary {
+    background: var(--highlight-color);
+    padding: 8px 16px;
+
+    &:hover {
+        opacity: 0.9;
+    }
 }

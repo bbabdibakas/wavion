@@ -10,10 +10,16 @@
 }
 
 .link {
-    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    padding: 8px;
     border-radius: 8px;
 
     &:hover {
-        background: #242424;
+        background: var(--hover-color);
     }
+}
+
+.label {
+    margin-left: 16px;
 }

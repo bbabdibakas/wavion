@@ -4,6 +4,7 @@ import { ReactNode } from 'react';
 import AppButton from '../AppButton/AppButton';
 import { AppHeader } from '../AppHeader/AppHeader';
 import { classNames } from 'shared/lib/classNames/classNames';
+import CancelIcon from 'shared/assets/CancelIcon.svg'
 
 interface AppModalProps {
     className?: string;
@@ -31,8 +32,8 @@ export const AppModal = (props: AppModalProps) => {
                 <div className={cls.overlay}>
                     <div className={cls.content}>
                         <AppHeader>
-                            <AppButton onClick={onCloseHandler}>
-                                close
+                            <AppButton onClick={onCloseHandler} className={cls.button}>
+                                <CancelIcon />
                             </AppButton>
                         </AppHeader>
                         <div className={cls.body}>

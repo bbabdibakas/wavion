@@ -1,14 +1,16 @@
 .wrapper {
     position: relative;
+    width: 100%;
 }
 
 .AppInput {
+    min-width: 300px;
     background: none;
     border: 1px solid var(--border-color);
     border-radius: 8px;
     box-sizing: border-box;
     padding: 10px;
-    font: var(--font-l);
+    font: var(--font-m);
     color: var(--primary-color);
     outline: none;
 }
@@ -18,7 +20,7 @@
 }
 
 .AppInput:not(:placeholder-shown)+.placeholder {
-    font: var(--font-m);
+    font: var(--font-s);
     top: 0;
     color: var(--highlight-color);
     padding: 0 5px;
@@ -35,7 +37,7 @@
     left: 10px;
     top: 50%;
     transform: translateY(-50%);
-    font: var(--font-l);
+    font: var(--font-m);
     transition: all 0.2s ease;
     color: var(--primary-color);
 }
