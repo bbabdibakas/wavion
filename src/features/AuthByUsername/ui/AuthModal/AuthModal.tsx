@@ -15,7 +15,7 @@ export const AuthModal = (props: AuthModalProps) => {
 
     return (
         <AppModal isOpen={isOpen} onClose={onClose}>
-            <AuthForm />
+            <AuthForm onSuccess={onClose}/>
         </AppModal>
     );
 };
