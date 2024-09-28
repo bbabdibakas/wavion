@@ -10,12 +10,13 @@ import { authByUsername } from "../../model/services/authByUsername"
 import { authFormErrorMessage } from "../../model/selectors/authFormErrorMessage"
 import { authFormIsLoading } from "../../model/selectors/authFormIsLoading"
 import { useAppDispatch } from "shared/lib/useAppDispatch/useAppDispatch"
+import { AppLoader } from "shared/ui/AppLoader/AppLoader"
 
 interface AuthFormProps {
     onSuccess: () => void
 }
 
-export const AuthForm = ({onSuccess}: AuthFormProps) => {
+export const AuthForm = ({ onSuccess }: AuthFormProps) => {
     const dispatch = useAppDispatch()
 
     const username = useSelector(authFormUsername)
@@ -50,9 +51,7 @@ export const AuthForm = ({onSuccess}: AuthFormProps) => {
             <AppInput value={password} onChange={onChangePassword} placeholder="Password" className={cls.input} />
             <AppButton className={cls.button} theme={AppButtonTheme.PRIMARY} onClick={onLoginHandler}>
                 Login
-                <div>
-                    {isLoading && 'loading'}
-                </div>
+                {isLoading && <AppLoader className={cls.loader} />}
             </AppButton>
         </div>
     )

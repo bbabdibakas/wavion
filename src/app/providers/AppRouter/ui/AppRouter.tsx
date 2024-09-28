@@ -1,13 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import { AppRouteProps, routeConfig } from "../lib/routeConfig";
-import { useCallback } from "react";
+import { Suspense, useCallback } from "react";
 import { RequireAuth } from "./RequireAuth";
+import { AppPageLoader } from "shared/ui/AppPageLoader/AppPageLoader";
 
 const AppRouter = () => {
     const renderWithWrapper = useCallback((route: AppRouteProps) => {
         const element = (
             <div className={'content'}>
-                {route.element}
+                <Suspense fallback={<AppPageLoader />}>
+                    {route.element}
+                </Suspense>
             </div>
         )
 
