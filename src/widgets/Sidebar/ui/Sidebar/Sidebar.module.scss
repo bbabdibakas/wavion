@@ -1,0 +1,10 @@
+.Sidebar {
+    width: 200px;
+    border-right: 1px solid var(--border-color);
+    padding: 8px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+}
