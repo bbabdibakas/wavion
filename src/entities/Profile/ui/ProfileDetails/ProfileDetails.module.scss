@@ -1,0 +1,30 @@
+.ProfileDetails {
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.isLoading {
+    height: 300px;
+}
+
+.isHasError {
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    font-weight: 700;
+}
+
+.username, .bio {
+    color: var(--secondary-color);
+}
+
+.bio {
+    margin-top: 8px;
+}

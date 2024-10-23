@@ -3,8 +3,15 @@
         {
             "id": "1",
             "username": "babdibakas",
-            "password": "12345",
-            "name": "Bekzat Abdibakas"
+            "password": "12345"
+        }
+    ],
+    "profiles": [
+        {
+            "id": "1",
+            "username": "babdibakas",
+            "name": "Bekzat Abdibakas",
+            "bio": "Егошнего/Ихний"
         }
     ]
 }

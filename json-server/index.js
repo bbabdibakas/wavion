@@ -27,7 +27,7 @@ server.post('/auth', (req, res) => {
         );
 
         if (userFromBd) {
-            return res.json({id: userFromBd.id, username: userFromBd.username, name: userFromBd.name});
+            return res.json({id: userFromBd.id, username: userFromBd.username});
         }
 
         return res.status(403).json({ message: 'User not found' });

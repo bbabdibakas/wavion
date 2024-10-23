@@ -44,9 +44,6 @@ export const AuthForm = ({ onSuccess }: AuthFormProps) => {
             <div className={cls.title}>
                 Welcome back to Wavion
             </div>
-            <div>
-                {isLoading}
-            </div>
             <AppInput value={username} onChange={onChangeUsername} placeholder="Username" className={cls.input} />
             <AppInput value={password} onChange={onChangePassword} placeholder="Password" className={cls.input} />
             <AppButton className={cls.button} theme={AppButtonTheme.PRIMARY} onClick={onLoginHandler}>
